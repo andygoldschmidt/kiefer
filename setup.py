@@ -1,15 +1,14 @@
-from pip.req import parse_requirements
 import pypandoc
 from setuptools import setup
 
-parsed_reqs = parse_requirements('requirements.txt', session='foo')
-requirements = [str(p.req) for p in parsed_reqs]
+
+requirements = ['requests-oauthlib==0.5.0', ]
 
 long_description = open('README.rst').read()
 
 setup(
     name='kiefer',
-    version='0.1.1',
+    version='0.1.2',
     description='A Python wrapper for the Jawbone UP API.',
     long_description=long_description,
     author='Andy Goldschmidt',
