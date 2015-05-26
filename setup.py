@@ -5,11 +5,11 @@ from setuptools import setup
 parsed_reqs = parse_requirements('requirements.txt', session='foo')
 requirements = [str(p.req) for p in parsed_reqs]
 
-long_description = pypandoc.convert('README.md', 'rst')
+long_description = open('README.rst').read()
 
 setup(
     name='kiefer',
-    version=0.1,
+    version='0.1.1',
     description='A Python wrapper for the Jawbone UP API.',
     long_description=long_description,
     author='Andy Goldschmidt',
