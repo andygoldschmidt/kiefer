@@ -1,4 +1,3 @@
-import pypandoc
 from setuptools import setup
 
 
@@ -8,12 +7,13 @@ long_description = open('README.rst').read()
 
 setup(
     name='kiefer',
-    version='0.1.2b',
+    version='0.1.3',
     description='A Python wrapper for the Jawbone UP API.',
     long_description=long_description,
     author='Andy Goldschmidt',
     author_email='andy@abby.io',
     license='MIT',
     url='https://github.com/andygoldschmidt/kiefer',
+    packages=['kiefer', ],
     install_requires=requirements
 )
