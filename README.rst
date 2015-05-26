@@ -6,6 +6,15 @@ kiefer
 A simple Python wrapper for Jawbone's UP API. *kiefer* fully supports
 Python 2.7 and Python 3.4.
 
+Installation
+------------
+
+You can easily install *kiefer* using pip:
+
+::
+
+    pip install kiefer
+
 Authentication
 --------------
 

@@ -8,7 +8,7 @@ long_description = open('README.rst').read()
 
 setup(
     name='kiefer',
-    version='0.1.2',
+    version='0.1.2b',
     description='A Python wrapper for the Jawbone UP API.',
     long_description=long_description,
     author='Andy Goldschmidt',
