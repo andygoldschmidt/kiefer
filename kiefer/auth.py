@@ -6,19 +6,17 @@ import sys
 
 
 class KieferAuth(object):
+    """
+    Takes care of authentication with the Jawbone UP API.
 
+    :param config_path: Path to config file.
+    """
     # Don't check scopes after retrieving token, API returns no scopes
     os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
     _authorization_url = 'https://jawbone.com/auth/oauth2/auth'
     _token_url = 'https://jawbone.com/auth/oauth2/token'
 
     def __init__(self, config_path):
-        """
-        This class takes care of authentication with the Jawbone UP API.
-
-        :param config_path: Path to config file.
-        :return:
-        """
         if not os.path.isfile(config_path):
             raise IOError("No such file '{}'".format(config_path))
 
