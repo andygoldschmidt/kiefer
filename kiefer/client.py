@@ -65,21 +65,21 @@ class KieferClient(object):
         """
         return self._delete('body_events/' + xid)
 
-    def get_heart_rates(self):
+    def get_heart_rates(self, **kwargs):
         """Get list of heart rates."""
-        return self._get('users/@me/heartrates')
+        return self._get('users/@me/heartrates', kwargs)
 
-    def get_custom_events(self):
+    def get_custom_events(self, **kwargs):
         """Get list of custom/generic events."""
-        return self._get('users/@me/generic_events')
+        return self._get('users/@me/generic_events', kwargs)
 
     def get_goals(self):
         """Get list of goals."""
         return self._get('users/@me/goals')
 
-    def get_meals(self):
+    def get_meals(self, **kwargs):
         """Get list of meals."""
-        return self._get('users/@me/meals')
+        return self._get('users/@me/meals', kwargs)
 
     def get_meal(self, xid):
         """
@@ -89,9 +89,9 @@ class KieferClient(object):
         """
         return self._get('meals/' + xid)
 
-    def get_moods(self):
+    def get_moods(self, **kwargs):
         """Get list of moods."""
-        return self._get('users/@me/mood')
+        return self._get('users/@me/mood', kwargs)
 
     def get_mood(self, xid):
         """
@@ -101,9 +101,9 @@ class KieferClient(object):
         """
         return self._get('mood/' + xid)
 
-    def get_moves(self):
+    def get_moves(self, **kwargs):
         """Get list of moves."""
-        return self._get('users/@me/moves')
+        return self._get('users/@me/moves', kwargs)
 
     def get_move(self, xid):
         """
@@ -117,9 +117,9 @@ class KieferClient(object):
         """Retrieve user settings."""
         return self._get('users/@me/settings')
 
-    def get_sleeps(self):
+    def get_sleeps(self, **kwargs):
         """Get list of sleeps."""
-        return self._get('users/@me/sleeps')
+        return self._get('users/@me/sleeps', kwargs)
 
     def get_sleep(self, xid):
         """
@@ -129,13 +129,13 @@ class KieferClient(object):
         """
         return self._get('sleeps/' + xid)
 
-    def get_timezone(self):
+    def get_timezone(self, **kwargs):
         """Get user time zone."""
-        return self._get('users/@me/timezone')
+        return self._get('users/@me/timezone', kwargs)
 
-    def get_trends(self):
+    def get_trends(self, **kwargs):
         """Get trends."""
-        return self._get('users/@me/trends')
+        return self._get('users/@me/trends', kwargs)
 
     def get_user_information(self):
         """Get basic information of the user."""
@@ -145,9 +145,9 @@ class KieferClient(object):
         """Get list of the user's friends."""
         return self._get('users/@me/friends')
 
-    def get_workouts(self):
+    def get_workouts(self, **kwargs):
         """Get list of workouts."""
-        return self._get('users/@me/workouts')
+        return self._get('users/@me/workouts', kwargs)
 
     def get_workout(self, xid):
         """
