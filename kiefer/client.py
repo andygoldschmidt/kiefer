@@ -23,9 +23,9 @@ class KieferClient(object):
         """Get list of band hardware events."""
         return self._get('users/@me/bandevents')
 
-    def get_body_events(self):
+    def get_body_events(self, **kwargs):
         """Get list of body events."""
-        return self._get('users/@me/body_events')
+        return self._get('users/@me/body_events', payload=kwargs)
 
     def get_body_event(self, xid):
         """
@@ -56,6 +56,14 @@ class KieferClient(object):
         if 'weight' not in kwargs:
             raise KieferClientError("Required parameter 'weight' not found.")
         return self._post('users/@me/body_events', kwargs)
+
+    def delete_body_event(self, xid):
+        """
+        Delete a body event.
+
+        :param xid: :class:`str`, id of body event
+        """
+        return self._delete('body_events/' + xid)
 
     def get_heart_rates(self):
         """Get list of heart rates."""
@@ -151,9 +159,9 @@ class KieferClient(object):
 
     # Request helper methods
 
-    def _get(self, endpoint):
+    def _get(self, endpoint, payload=None):
         req_url = self.BASE_URL + endpoint
-        r = requests.get(req_url, headers=self._headers)
+        r = requests.get(req_url, headers=self._headers, params=payload)
         self._validate_response(r, 200)
         return r.json()
 
@@ -161,6 +169,12 @@ class KieferClient(object):
         req_url = self.BASE_URL + endpoint
         r = requests.post(req_url, headers=self._headers, data=payload)
         self._validate_response(r, 201)
+        return r.json()
+
+    def _delete(self, endpoint):
+        req_url = self.BASE_URL + endpoint
+        r = requests.delete(req_url, headers=self._headers)
+        self._validate_response(r, 200)
         return r.json()
 
     @staticmethod
