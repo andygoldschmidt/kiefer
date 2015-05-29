@@ -1,7 +1,7 @@
 Installation
 ============
 
-Installing `kiefer` is pretty simple. You can either install it from the PyPI or from source.
+Installing `kiefer` is pretty simple. You can either install it from PyPI or from source.
 
 Installing from PyPI
 --------------------
