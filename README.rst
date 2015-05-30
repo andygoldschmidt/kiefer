@@ -3,6 +3,8 @@ kiefer
 
 .. image:: https://travis-ci.org/andygoldschmidt/kiefer.svg?branch=master
 
+.. image:: https://img.shields.io/pypi/v/kiefer.svg
+
 *Kiefer* (German): *jawbone*.
 
 A simple Python wrapper for Jawbone's UP API. *kiefer* fully supports
