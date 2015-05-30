@@ -49,8 +49,7 @@ After retrieving your access token, initialize the client:
 
     client = KieferClient(your_access_token)
 
-A ``KieferClient`` instance offers methods to retrieve following metrics
-from the Jawbone UP API:
+A ``KieferClient`` instance offers endpoints for these event types:
 
 -  band events
 -  body event(s)
@@ -66,5 +65,18 @@ from the Jawbone UP API:
 -  user information
 -  workout(s)
 
-A *(s)* indicates that you can retrieve a list of events as well as a
-single event.
+The usage is straight forward:
+
+::
+
+  # Get information about authorized user
+  client.get_user_information()
+
+  # Add a new body event (weight)
+  client.add_body_event(title='New body event', weight=85.0, body_fat=22.5, share=True)
+
+  # Delete a sleep event
+  client.delete_sleep('sleep_id')
+
+  # Some endpoints support updates as well, e.g. workouts:
+  client.update_workout('workout_id', calories=500)
