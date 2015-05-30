@@ -1,6 +1,8 @@
 kiefer
 ======
 
+.. image:: https://travis-ci.org/andygoldschmidt/kiefer.svg?branch=master
+
 *Kiefer* (German): *jawbone*.
 
 A simple Python wrapper for Jawbone's UP API. *kiefer* fully supports
