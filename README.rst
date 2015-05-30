@@ -1,7 +1,7 @@
 kiefer
 ======
 
-*kiefer* (German): *jawbone*.
+*Kiefer* (German): *jawbone*.
 
 A simple Python wrapper for Jawbone's UP API. *kiefer* fully supports
 Python 2.7 and Python 3.4.
@@ -36,7 +36,7 @@ copy-pasting a URL:
     from kiefer.auth import KieferAuth
 
     auth = KieferAuth('config.json')
-    access_token = auth.get_token()
+    access_token = auth.get_access_token()
 
 Usage
 -----

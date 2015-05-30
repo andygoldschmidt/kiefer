@@ -1,4 +1,5 @@
 import requests
+from kiefer.util import validate_response
 
 
 class KieferClientError(Exception):
@@ -354,25 +355,20 @@ class KieferClient(object):
     def _get(self, endpoint, payload=None):
         req_url = self.BASE_URL + endpoint
         r = requests.get(req_url, headers=self._headers, params=payload)
-        self._validate_response(r, 200)
+        validate_response(r, 200, KieferClientError)
         return r.json()
 
     def _post(self, endpoint, payload):
         req_url = self.BASE_URL + endpoint
         r = requests.post(req_url, headers=self._headers, data=payload)
-        self._validate_response(r, 201)
+        # Expected status should be an integer, but since Jawbone messes up
+        # status codes (e.g. create workout return 200 instead of 201) we have
+        # to check for multiple status codes -.-
+        validate_response(r, [200, 201], KieferClientError)
         return r.json()
 
     def _delete(self, endpoint):
         req_url = self.BASE_URL + endpoint
         r = requests.delete(req_url, headers=self._headers)
-        self._validate_response(r, 200)
+        validate_response(r, 200, KieferClientError)
         return r.json()
-
-    @staticmethod
-    def _validate_response(req, expected_status):
-        if req.status_code != expected_status:
-            error_type = req.json()['meta']['error_type']
-            error_detail = req.json()['meta']['error_detail']
-            raise KieferClientError('{}: {}'.format(error_type, error_detail))
-        return True
