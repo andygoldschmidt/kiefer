@@ -1,0 +1,8 @@
+{
+  "client_id": "abc",
+  "client_secret": "secret",
+  "redirect_uri": "https://example.com",
+  "scope": [
+    "myscope"
+  ]
+}

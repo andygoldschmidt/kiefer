@@ -2,8 +2,10 @@ kiefer
 ======
 
 .. image:: https://travis-ci.org/andygoldschmidt/kiefer.svg?branch=master
+   :target: https://travis-ci.org/andygoldschmidt/kiefer
 
 .. image:: https://img.shields.io/pypi/v/kiefer.svg
+   :target: https://pypi.python.org/pypi/kiefer
 
 *Kiefer* (German): *jawbone*.
 
@@ -56,18 +58,18 @@ After retrieving your access token, initialize the client:
 A ``KieferClient`` instance offers endpoints for these event types:
 
 -  band events
--  body event(s)
+-  body events
 -  heart rate
 -  custom events
 -  goals
--  meal(s)
--  mood(s)
--  move(s)
+-  meals
+-  moods
+-  moves
 -  settings
--  sleep(s)
+-  sleeps
 -  time zone
 -  user information
--  workout(s)
+-  workouts
 
 The usage is straight forward:
 

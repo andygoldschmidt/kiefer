@@ -7,6 +7,10 @@ import sys
 from kiefer.util import validate_response
 
 
+def _get_input(msg):
+    return input(msg) if sys.version_info.major == 3 else raw_input(msg)
+
+
 class KieferAuthError(Exception):
     pass
 
@@ -69,10 +73,7 @@ class KieferAuth(object):
         auth_url, state = session.authorization_url(self._authorization_url)
 
         print('Please go to this URL and grant access: {}'.format(auth_url))
-        if sys.version_info.major == 3:
-            auth_response = input('Please enter the full callback URL: ')
-        else:
-            auth_response = raw_input('Please enter the full callback URL: ')
+        auth_response = _get_input('Please enter the full callback URL: ')
         token = self._get_token(session, auth_response)
         self.access_token = token['access_token']
         self.refresh_token = token['refresh_token']

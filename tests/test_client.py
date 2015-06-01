@@ -24,13 +24,13 @@ def setup(mocker):
     return Setup
 
 
-def test_client():
+def test_client_client_init():
     client = KieferClient('access_token')
     assert client.access_token == 'access_token'
     assert client._headers['Authorization'] == 'Bearer access_token'
 
 
-def test_get_helper(setup):
+def test_client_get_helper(setup):
     req_url = 'https://jawbone.com/nudge/api/v.1.1/myurl'
     setup.client._get('myurl')
     setup.req_get.assert_called_once_with(req_url, params=None,
@@ -41,7 +41,7 @@ def test_get_helper(setup):
         setup.client._get('myurl')
 
 
-def test_post_helper(setup):
+def test_client_post_helper(setup):
     req_url = 'https://jawbone.com/nudge/api/v.1.1/myurl'
     setup.client._post('myurl', payload={})
     setup.req_post.assert_called_once_with(req_url, data={},
@@ -52,7 +52,7 @@ def test_post_helper(setup):
         setup.client._post('myurl', payload={'foo': 'bar'})
 
 
-def test_delete_helper(setup):
+def test_client_delete_helper(setup):
     req_url = 'https://jawbone.com/nudge/api/v.1.1/myurl'
     setup.client._delete('myurl')
     setup.req_delete.assert_called_once_with(req_url, headers=setup.headers)
@@ -62,14 +62,14 @@ def test_delete_helper(setup):
         setup.client._delete('myurl')
 
 
-def test_get_band_events(setup):
+def test_client_get_band_events(setup):
     url = 'https://jawbone.com/nudge/api/v.1.1/users/@me/bandevents'
     setup.client.get_band_events()
     setup.req_get.assert_called_once_with(url, params=None,
                                           headers=setup.headers)
 
 
-def test_get_body_events(setup):
+def test_client_get_body_events(setup):
     url = 'https://jawbone.com/nudge/api/v.1.1/users/@me/body_events'
     setup.client.get_body_events()
     setup.req_get.assert_called_once_with(url, params={},
